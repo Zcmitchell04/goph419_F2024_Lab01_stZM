@@ -25,26 +25,25 @@ def arcsin(x):
     x: the right hand side of eq. 18
 
     """
-    if -1 < x < 1:
+    if x < -1 or x > 1:
         raise ValueError(f"Invalid x value: {x}")
     result = 0.0
     eps_a = 1.0
-    tol = 1.0e-8 #error tolerance
+    tol = 1.0e-8  # error tolerance - means that the value given will be to the 1e-8th sig.fig.
     n = 1
     fact_n = math.factorial(n)
     fact_2n = math.factorial(n*2)
-    n_max = 100
-    while eps_a > tol and n < n_max:
+    maximum_n = 100
+    while eps_a > tol and n < maximum_n:
+        # equation 18
         dy = ((2 * x) ** (2 * n)) / ((n**2)*(fact_2n/(fact_n**2)))
         result += dy
         n += 1
-        eps_a = abs(dy/ result)
-        sininv = np.sqrt(0.5*(result))
-        return(sininv)
-
-
-
-
+        eps_a = abs(dy/result)
+        fact_n *=n
+        fact_2n *= (2 * n) * ((2 * n) - 1)
+        sininv = np.sqrt(0.5 * result)
+        return sininv
 
 
 def launch_angle(ve_v0, alpha):
@@ -52,15 +51,14 @@ def launch_angle(ve_v0, alpha):
     
     parameters:
     ve_v0 : the input ratio of escape and terminal velocity
-    alpha: desired max. alt as a fraction of earht's radius
+    alpha: desired max. alt as a fraction of earth's radius
     
     """
     if ve_v0 < 0 or alpha < 0:
         raise ValueError(f"Invalid ve_v0 or alpha value: {ve_v0} or {alpha}")
-    sin0 = (1 + alpha) * (np.sqrt(1 - (alpha / (1 + alpha)) * (ve_v0 ** 2)))  #eq 17
-    result = arcsin(sin0)
-    return result
-
+    sin0 = ((1 + alpha) * (np.sqrt(1 - (alpha / (1 + alpha)) * ve_v0 ** 2)))  # eq 17
+    launch_angle.result = arcsin(sin0)
+    return launch_angle.result
 
 
 def launch_angle_range(ve_v0, alpha, tol_alpha):
@@ -85,7 +83,7 @@ def launch_angle_range(ve_v0, alpha, tol_alpha):
 # ...
     array_list = []
 
-    posmax_alt = ((1 + tol_alpha) * alpha)  # max allowable launch angle: corresponds to highest altitude
+    posmax_alt = ((1 + tol_alpha) * alpha)  # max allowable launch angle: corresponds to the highest altitude
     array_list.append(launch_angle(ve_v0, posmax_alt))
 
     negmax_alt = ((1 - tol_alpha) * alpha)  # min allowable launch angle: corresponds to the lowest altitude
@@ -96,21 +94,4 @@ def launch_angle_range(ve_v0, alpha, tol_alpha):
     print(phi_range)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-###Practice implementation:
+# Practice implementation:
