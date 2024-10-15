@@ -29,7 +29,7 @@ def arcsin(x):
         raise ValueError(f"Invalid x value: {x}")
     result = 0.0
     eps_a = 1.0
-    tol = 1.0e-8  # error tolerance - means that the value given will be to the 1e-8th sig.fig.
+    tol = 1.0E-8  # error tolerance - means that the value given will be to the 1e-8th sig.fig.
     n = 1
     fact_n = math.factorial(n)
     fact_2n = math.factorial(n*2)
@@ -40,10 +40,10 @@ def arcsin(x):
         result += dy
         n += 1
         eps_a = abs(dy/result)
-        fact_n *=n
+        fact_n *= n
         fact_2n *= (2 * n) * ((2 * n) - 1)
         sininv = np.sqrt(0.5 * result)
-        return sininv
+    return sininv
 
 
 def launch_angle(ve_v0, alpha):
@@ -57,8 +57,8 @@ def launch_angle(ve_v0, alpha):
     if ve_v0 < 0 or alpha < 0:
         raise ValueError(f"Invalid ve_v0 or alpha value: {ve_v0} or {alpha}")
     sin0 = ((1 + alpha) * (np.sqrt(1 - (alpha / (1 + alpha)) * ve_v0 ** 2)))  # eq 17
-    launch_angle.result = arcsin(sin0)
-    return launch_angle.result
+    return arcsin(sin0)
+
 
 
 def launch_angle_range(ve_v0, alpha, tol_alpha):
@@ -91,7 +91,8 @@ def launch_angle_range(ve_v0, alpha, tol_alpha):
 
     phi_range = np.array(array_list)
 
-    print(phi_range)
+    return(phi_range)
+
 
 
 # Practice implementation:

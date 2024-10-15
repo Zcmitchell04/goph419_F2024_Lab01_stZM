@@ -16,9 +16,10 @@ def test_arcsin():
     print("now testing the arcsin function: ")
     result = arcsin(x)
     expected = np.asin(x)
+
     # Comparing the values:
     if np.abs((result - expected) / expected) < tol:
-        print("PASSED, result value and expected value agree.")
+        print(f"PASSED, result value {result} and expected value {expected} agree.")
     else:
         print(f"FAILED: expected calculation was {expected} but got {result}.")
 
@@ -41,7 +42,7 @@ def test_launch_angle():
 
 
     if np.abs((result - expected) / expected) < tol:
-        print("PASSED, result value and expected value agree.")
+        print(f"PASSED, result value {result} and expected value {expected} agree.")
     else:
         print(f"FAILED: expected calculation was {expected} but got {result}.")
 
@@ -56,19 +57,20 @@ def test_launch_angle_range():
     # using numpy functions to calc. expected values:
     expected_values_list = []
     posmax_alt = ((1 + tol_alpha) * alpha)
-    expected_values_list.append(launch_angle(ve_v0, posmax_alt))
+    expected_list = expected_values_list.append((launch_angle(ve_v0, posmax_alt)))
     negmax_alt = ((1 - tol_alpha) * alpha)
-    expected_values_list.append(launch_angle(ve_v0, negmax_alt))
-    expected_range = np.array(expected_values_list)
+    expected_list = expected_values_list.append(launch_angle(ve_v0, negmax_alt))
+    expected_range = np.array(expected_list)
 
     # using my function to calc. resulting values:
-    result = np.array(launch_angle_range(ve_v0, alpha, tol_alpha))
+    result = launch_angle_range(ve_v0, alpha, tol_alpha)
+    actualresult = np.array(result)
 
     # comparing the two:
     if np.array_equal(result, expected_values_list):
-        print("PASSED, result range and expected range agree.")
+        print(f"PASSED, result range {expected_list} and expected range {actualresult} agree.")
     else:
-        print(f"FAILED: expected calculation was {expected_values_list} but got {result}.")
+        print(f"FAILED: expected calculation was {expected_list} but got {actualresult}.")
 
 
 if __name__ == "__main__":

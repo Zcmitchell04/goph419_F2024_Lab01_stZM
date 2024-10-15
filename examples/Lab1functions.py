@@ -4,7 +4,6 @@ from lab01 import (
     launch_angle_range,
     launch_angle,
     arcsin,
-
 )
 
 earthrad = 6378
@@ -17,13 +16,59 @@ def main():
 
     launch_angle_range(ve_v0, alpha, tol_alpha)
 
-# numpy linespace for ve_v0 range
+    # Define range for ve_v0
     rng_ve_v0 = np.linspace(1.4, 2.0, 100)
-    # plot that hold ve_v0 constant
-    xpoints = alpha
-    ypoints = launch_angle_range(ve_v0, alpha, tol_alpha)
-    plt.plot(xpoints, ypoints)
+
+
+
+    min_ve_v0 = []
+    max_ve_v0 = []
+
+
+    for ve_v0 in rng_ve_v0:
+        phi_range = launch_angle_range(ve_v0, alpha, tol_alpha)
+        min_ve_v0.append(phi_range[0])
+        max_ve_v0.append(phi_range[1])
+
+
+
+    plt.figure(figsize=(10, 6))
+    plt.plot(rng_ve_v0, min_ve_v0, label="Min Launch Angle", linewidth=1, color="#f67280")
+    plt.plot(rng_ve_v0, max_ve_v0, label="Max Launch Angle", linewidth=1, color="#6c5b7b")
+    plt.xlabel("Ve/v0 ratio")
+    plt.ylabel("Launch angle in rad")
+    plt.title("Launch Angle with respect to a range of ve_v0")
+    plt.legend(title="Legend", alignment="left")
+    plt.grid()
+    plt.savefig('C:\\users\\zcmit\\git\\goph419projects\\goph419_f2024_lab01_stZM\\figures\\launch_angle_rangeplots.png')
     plt.show()
+
+
+    # Define range for alpha
+    rng_alpha = np.linspace(0.01, 0.04, 100)
+
+    min_angles = []
+    max_angles = []
+
+    for alpha in rng_alpha:
+        phi_range = launch_angle_range(ve_v0, alpha, tol_alpha)
+        min_angles.append(phi_range[0])
+        max_angles.append(phi_range[1])
+
+
+    plt.figure(figsize=(10, 6))
+    plt.plot(rng_alpha, min_angles, label="Min Launch Angle", linewidth=2, color="#495867")
+    plt.plot(rng_alpha, max_angles, label="Max Launch Angle", linewidth=2, color="#c18c5d")
+    plt.xlabel("Alpha in m")
+    plt.ylabel("Launch angle in rad")
+    plt.title("Launch Angle with respect to launch angle in terms of earthrad")
+    plt.legend(title="Legend", alignment="left")
+    plt.grid()
+    plt.savefig(
+        'C:\\users\\zcmit\\git\\goph419projects\\goph419_f2024_lab01_stZM\\figures\\launch_angle_rangeplotsALPHA.png')
+    plt.show()
+
+
 
 
 
