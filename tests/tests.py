@@ -8,7 +8,20 @@ from lab01 import (
 
 #both ve_v0 and alpha should be above 0
 def test_arcsin():
-    # takes the argument "x"
+    """The function that tests the arcsin function in func01.py
+    ---------
+    Parameters:
+
+    (x,
+    )
+
+    ------
+    Returns:
+
+    none
+
+    """
+
     tol = 1.0E-8
     x = 0.6  # -1 < x < 1
 
@@ -26,7 +39,20 @@ def test_arcsin():
 
 
 def test_launch_angle():
-    # takes inputs of "alpha" and "ve_v0"
+    """The function that tests the launch_angle function in func01.py
+        ---------
+        Parameters:
+
+        (alpha,
+        ve_v0
+        )
+        ------
+        Returns:
+
+        none
+
+        """
+
     tol = 1.0E-8
     ve_v0 = 2.0
     alpha = 0.2
@@ -47,7 +73,21 @@ def test_launch_angle():
 
 
 def test_launch_angle_range():
-    # takes inputs of "alpha", "ve_v0" and "tol_alpha"
+    """The function that tests the launch_angle_range function in func01.py
+        ---------
+        Parameters:
+
+        (alpha,
+        ve_v0,
+        tol_alpha,
+        )
+        ------
+        Returns:
+
+        none
+
+        """
+
     ve_v0 = 2.0  # input
     alpha = 0.25
     tol_alpha = 0.04

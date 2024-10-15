@@ -18,11 +18,15 @@ gravcons = 6.67430E-11
 
 
 def arcsin(x):
-    """Function for equation 18
+    """Function for equation 18, computes the right side of equation to be used as arcsin for equation 17.
+    ------
+    Parameters:
 
-    parameters:
+        x: the right hand side of eq. 18
+    --------
+    Returns:
 
-    x: the right hand side of eq. 18
+        sininv
 
     """
     if x < -1 or x > 1:
@@ -47,12 +51,17 @@ def arcsin(x):
 
 
 def launch_angle(ve_v0, alpha):
-    """The function for equation 17
-    
-    parameters:
+    """The function for equation 17, calculates desired launch angle.
+    ----------
+    Parameters:
+
     ve_v0 : the input ratio of escape and terminal velocity
     alpha: desired max. alt as a fraction of earth's radius
-    
+    ------
+    Returns:
+
+        arcsin(sininv)
+
     """
     if ve_v0 < 0 or alpha < 0:
         raise ValueError(f"Invalid ve_v0 or alpha value: {ve_v0} or {alpha}")
@@ -62,13 +71,17 @@ def launch_angle(ve_v0, alpha):
 
 
 def launch_angle_range(ve_v0, alpha, tol_alpha):
-    """Description of function.
+    """The function that calculates the maximum allowable launch angle and minimum allowable launch angle
+    and provides it in array format. Implements Equation #18
+    ----------
     Parameters:
         ve_v0: the input ratio of escape and terminal velocity
         alpha: desired max. alt. as a fraction of earth's radius
         tol_alpha: tolerance of max alt.
     ----------
-    Returns
+    Returns:
+        phi_range
+
     -------
     """
 

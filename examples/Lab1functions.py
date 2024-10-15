@@ -8,6 +8,18 @@ from lab01 import (
 
 
 def main():
+    """ The function that takes the constant value inputs,
+     calls the functions from func01, and produces calculated plots and arrays.
+     -------
+     Parameters:
+         (None,
+         )
+     -----
+     Returns:
+           (None,
+           )
+
+     """
     ve_v0 = 2.0  # for when kept constant
     alpha = 0.25  # for when kept constant
     tol_alpha = 0.04  # for when kept constant
@@ -64,16 +76,5 @@ if __name__ == "__main__":
     main()
 
 
-#  EXPRESSING THE ERROR in sin0 and delta_sin0 with respect to:
-# eps = 1.0E-8
-# ve_v0 = 2.0
-# delta_ve_v0 = 0.05
-# alpha = 0.25
-# delta_alpha = 0.02
-# where delta_sin0 in terms of ve_v0 = partialderivative of sin0 wrt. ve_v0 * delta_ve_v0
-# where delta_sin0 in terms of alpha = partialderivative of sin0 wrt. alpha * delta_alpha
-# sin0 = 0.55901
-# delta_sin0 w.r.t ve_v0 = 0.04
-# delta_sin0 w.r.r alpha = 0.0512
 
 
