@@ -1,4 +1,3 @@
-
 import numpy as np
 from lab01 import (
     launch_angle_range,

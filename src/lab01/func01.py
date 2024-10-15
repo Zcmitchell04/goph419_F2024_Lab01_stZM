@@ -91,8 +91,10 @@ def launch_angle_range(ve_v0, alpha, tol_alpha):
 
     phi_range = np.array(array_list)
 
-    return(phi_range)
+    print(phi_range)
+    return phi_range
 
 
 
-# Practice implementation:
+
+
