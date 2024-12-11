@@ -20,6 +20,8 @@ def main():
            )
 
      """
+
+
     ve_v0 = 2.0  # for when kept constant
     alpha = 0.25  # for when kept constant
     tol_alpha = 0.04  # for when kept constant
@@ -27,7 +29,7 @@ def main():
     launch_angle_range(ve_v0, alpha, tol_alpha)
 
     # Define range for ve_v0
-    rng_ve_v0 = np.linspace(1.4, 2.0, 100)
+    rng_ve_v0 = np.linspace(1.4, 4.0, 100)
 
     min_ve_v0 = []
     max_ve_v0 = []
@@ -49,7 +51,7 @@ def main():
     plt.show()
 
     # Define range for alpha
-    rng_alpha = np.linspace(0.01, 0.04, 100)
+    rng_alpha = np.linspace(0.0, 0.04, 100)
 
     min_angle = []
     max_angle = []

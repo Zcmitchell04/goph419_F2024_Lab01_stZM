@@ -90,7 +90,7 @@ def test_launch_angle_range():
 
     ve_v0 = 2.0  # input
     alpha = 0.25
-    tol_alpha = 0.04
+    tol_alpha = 0.02
     print(f"now testing the launch_angle_range function: finding result for alpha value {alpha}, ve_v0 value {ve_v0}, and tol_alpha value {tol_alpha}")
 
     # using numpy functions to calc. expected values:
